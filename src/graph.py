@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, END
-from state import CustomerServiceState
-from nodes import (
+from .state import CustomerServiceState
+from .nodes import (
     classify_query, analyze_sentiment, handle_billing, handle_technical,
     handle_returns, handle_general, escalate, generate_response, validate_response, collaborate
 )

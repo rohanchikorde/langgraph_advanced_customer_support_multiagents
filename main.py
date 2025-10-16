@@ -1,4 +1,4 @@
-from graph import create_graph
+from src.graph import create_graph
 
 if __name__ == "__main__":
     app = create_graph()

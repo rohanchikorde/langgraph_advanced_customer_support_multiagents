@@ -1,6 +1,6 @@
 from typing import Dict, Any
-from state import CustomerServiceState
-from config import llm
+from .state import CustomerServiceState
+from .config import llm
 
 # Nodes
 def classify_query(state: CustomerServiceState) -> Dict[str, Any]:
