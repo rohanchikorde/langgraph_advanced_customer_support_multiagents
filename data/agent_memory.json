@@ -1,0 +1,189 @@
+{
+  "user_profiles": {
+    "test_user_123": {
+      "conversation_history": [
+        {
+          "timestamp": "2025-10-17T01:09:38.878353",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "I've checked your order. Here's how to resolve it...",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "preferences": {},
+      "resolved_issues": [
+        {
+          "timestamp": "2025-10-17T01:09:38.878353",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "I've checked your order. Here's how to resolve it...",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "common_issues": {
+        "billing": 1,
+        "technical": 1
+      },
+      "last_interaction": "2025-10-17T01:09:38.878353",
+      "total_interactions": 1
+    },
+    "test_user_1760643655": {
+      "conversation_history": [
+        {
+          "timestamp": "2025-10-17T01:10:55.460323",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "I've checked your order. Here's how to resolve it...",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "preferences": {},
+      "resolved_issues": [
+        {
+          "timestamp": "2025-10-17T01:10:55.460323",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "I've checked your order. Here's how to resolve it...",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "common_issues": {
+        "billing": 1,
+        "technical": 1
+      },
+      "last_interaction": "2025-10-17T01:10:55.460323",
+      "total_interactions": 1
+    },
+    "user123": {
+      "conversation_history": [
+        {
+          "timestamp": "2025-10-17T01:12:03.712244",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "\nHi there! I understand you're experiencing a billing issue with order **12345**. I'm here to help resolve this quickly.  \n\nBased on our frequent resolution steps for billing inquiries:  \n1. **Check payment status** \u2013 Please verify if there were any payment declines or processing delays for this order. You can review this in your account dashboard or payment history.  \n2. **Contact support** \u2013 If the payment status doesn\u2019t clarify the issue, our billing team will need to investigate further. Reach out to us directly at support@example.com or call 1-800-XXX-XXXX with your order ID ready.  \n\nSince we don\u2019t have prior interaction history noted, I\u2019ve prioritized the most common solution to streamline your support experience. Let us know if you\u2019d like immediate assistance\u2014we\u2019ll ensure this gets resolved promptly! \ud83d\udc99 \nI understand you're experiencing a billing issue with order **12345**. Based on your past interactions with our billing and technical support teams, I\u2019ll guide you through the resolution steps:\n\n### Step-by-Step Solution:\n1. **Verify Payment Status**:  \n   Please log in to your account and check the payment details for order **12345**. Look for:  \n   - Payment confirmation timestamp  \n   - Transaction ID (if available)  \n   - Any failed payment notifications  \n\n2. **Check for Delays**:  \n   If payments show as \"pending\" or \"processing,\" wait 24\u201348 hours for banks to complete the transaction. Many billing issues resolve automatically during this window.\n\n3. **Contact Support if Unresolved**:  \n   If the problem persists after 48 hours, our billing team will prioritize your case:  \n   - **Email**: billing@example.com (include order **12345** in the subject)  \n   - **Phone**: 1-800-SUPPORT (mention your order ID for faster handling)  \n\n### Why This Approach?  \nSince you\u2019ve historically encountered similar billing/technical issues, we\u2019ve streamlined the process to avoid repetitive troubleshooting. Most cases resolve after checking payment status, but our team will escalate if needed.\n\n### Next Steps:  \nLet me know if you\u2019d like real-time assistance with checking your payment details, or if you need help drafting your support message. I\u2019m here to ensure this is resolved promptly.",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "preferences": {},
+      "resolved_issues": [
+        {
+          "timestamp": "2025-10-17T01:12:03.712244",
+          "query": "I have a billing issue with order 12345",
+          "categories": [
+            "billing",
+            "technical"
+          ],
+          "resolution": true,
+          "response": "\nHi there! I understand you're experiencing a billing issue with order **12345**. I'm here to help resolve this quickly.  \n\nBased on our frequent resolution steps for billing inquiries:  \n1. **Check payment status** \u2013 Please verify if there were any payment declines or processing delays for this order. You can review this in your account dashboard or payment history.  \n2. **Contact support** \u2013 If the payment status doesn\u2019t clarify the issue, our billing team will need to investigate further. Reach out to us directly at support@example.com or call 1-800-XXX-XXXX with your order ID ready.  \n\nSince we don\u2019t have prior interaction history noted, I\u2019ve prioritized the most common solution to streamline your support experience. Let us know if you\u2019d like immediate assistance\u2014we\u2019ll ensure this gets resolved promptly! \ud83d\udc99 \nI understand you're experiencing a billing issue with order **12345**. Based on your past interactions with our billing and technical support teams, I\u2019ll guide you through the resolution steps:\n\n### Step-by-Step Solution:\n1. **Verify Payment Status**:  \n   Please log in to your account and check the payment details for order **12345**. Look for:  \n   - Payment confirmation timestamp  \n   - Transaction ID (if available)  \n   - Any failed payment notifications  \n\n2. **Check for Delays**:  \n   If payments show as \"pending\" or \"processing,\" wait 24\u201348 hours for banks to complete the transaction. Many billing issues resolve automatically during this window.\n\n3. **Contact Support if Unresolved**:  \n   If the problem persists after 48 hours, our billing team will prioritize your case:  \n   - **Email**: billing@example.com (include order **12345** in the subject)  \n   - **Phone**: 1-800-SUPPORT (mention your order ID for faster handling)  \n\n### Why This Approach?  \nSince you\u2019ve historically encountered similar billing/technical issues, we\u2019ve streamlined the process to avoid repetitive troubleshooting. Most cases resolve after checking payment status, but our team will escalate if needed.\n\n### Next Steps:  \nLet me know if you\u2019d like real-time assistance with checking your payment details, or if you need help drafting your support message. I\u2019m here to ensure this is resolved promptly.",
+          "entities": {
+            "order_id": "12345"
+          }
+        }
+      ],
+      "common_issues": {
+        "billing": 1,
+        "technical": 1
+      },
+      "last_interaction": "2025-10-17T01:12:03.712244",
+      "total_interactions": 1
+    }
+  },
+  "successful_patterns": {
+    "billing_technical_4809": {
+      "categories": [
+        "billing",
+        "technical"
+      ],
+      "query_patterns": [
+        "i have a billing issue with order 12345"
+      ],
+      "successful_responses": [
+        "I've checked your order. Here's how to resolve it..."
+      ],
+      "frequency": 1,
+      "last_used": "2025-10-17T01:09:38.878404"
+    },
+    "billing_technical_1850": {
+      "categories": [
+        "billing",
+        "technical"
+      ],
+      "query_patterns": [
+        "i have a billing issue with order 12345"
+      ],
+      "successful_responses": [
+        "I've checked your order. Here's how to resolve it..."
+      ],
+      "frequency": 1,
+      "last_used": "2025-10-17T01:10:55.460405"
+    },
+    "billing_technical_4468": {
+      "categories": [
+        "billing",
+        "technical"
+      ],
+      "query_patterns": [
+        "i have a billing issue with order 12345"
+      ],
+      "successful_responses": [
+        "\nHi there! I understand you're experiencing a billing issue with order **12345**. I'm here to help resolve this quickly.  \n\nBased on our frequent resolution steps for billing inquiries:  \n1. **Check payment status** \u2013 Please verify if there were any payment declines or processing delays for this order. You can review this in your account dashboard or payment history.  \n2. **Contact support** \u2013 If the payment status doesn\u2019t clarify the issue, our billing team will need to investigate further. Reach out to us directly at support@example.com or call 1-800-XXX-XXXX with your order ID ready.  \n\nSince we don\u2019t have prior interaction history noted, I\u2019ve prioritized the most common solution to streamline your support experience. Let us know if you\u2019d like immediate assistance\u2014we\u2019ll ensure this gets resolved promptly! \ud83d\udc99 \nI understand you're experiencing a billing issue with order **12345**. Based on your past interactions with our billing and technical support teams, I\u2019ll guide you through the resolution steps:\n\n### Step-by-Step Solution:\n1. **Verify Payment Status**:  \n   Please log in to your account and check the payment details for order **12345**. Look for:  \n   - Payment confirmation timestamp  \n   - Transaction ID (if available)  \n   - Any failed payment notifications  \n\n2. **Check for Delays**:  \n   If payments show as \"pending\" or \"processing,\" wait 24\u201348 hours for banks to complete the transaction. Many billing issues resolve automatically during this window.\n\n3. **Contact Support if Unresolved**:  \n   If the problem persists after 48 hours, our billing team will prioritize your case:  \n   - **Email**: billing@example.com (include order **12345** in the subject)  \n   - **Phone**: 1-800-SUPPORT (mention your order ID for faster handling)  \n\n### Why This Approach?  \nSince you\u2019ve historically encountered similar billing/technical issues, we\u2019ve streamlined the process to avoid repetitive troubleshooting. Most cases resolve after checking payment status, but our team will escalate if needed.\n\n### Next Steps:  \nLet me know if you\u2019d like real-time assistance with checking your payment details, or if you need help drafting your support message. I\u2019m here to ensure this is resolved promptly."
+      ],
+      "frequency": 1,
+      "last_used": "2025-10-17T01:12:03.712314"
+    }
+  },
+  "knowledge_base": {
+    "billing_technical": {
+      "categories": [
+        "billing",
+        "technical"
+      ],
+      "common_queries": [
+        "billing issue with order",
+        "billing issue with order",
+        "I have a billing issue with order 12345"
+      ],
+      "resolutions": [
+        "Check payment status and contact support",
+        "Check payment status and contact support",
+        "\nHi there! I understand you're experiencing a billing issue with order **12345**. I'm here to help resolve this quickly.  \n\nBased on our frequent resolution steps for billing inquiries:  \n1. **Check payment status** \u2013 Please verify if there were any payment declines or processing delays for this order. You can review this in your account dashboard or payment history.  \n2. **Contact support** \u2013 If the payment status doesn\u2019t clarify the issue, our billing team will need to investigate further. Reach out to us directly at support@example.com or call 1-800-XXX-XXXX with your order ID ready.  \n\nSince we don\u2019t have prior interaction history noted, I\u2019ve prioritized the most common solution to streamline your support experience. Let us know if you\u2019d like immediate assistance\u2014we\u2019ll ensure this gets resolved promptly! \ud83d\udc99 \nI understand you're experiencing a billing issue with order **12345**. Based on your past interactions with our billing and technical support teams, I\u2019ll guide you through the resolution steps:\n\n### Step-by-Step Solution:\n1. **Verify Payment Status**:  \n   Please log in to your account and check the payment details for order **12345**. Look for:  \n   - Payment confirmation timestamp  \n   - Transaction ID (if available)  \n   - Any failed payment notifications  \n\n2. **Check for Delays**:  \n   If payments show as \"pending\" or \"processing,\" wait 24\u201348 hours for banks to complete the transaction. Many billing issues resolve automatically during this window.\n\n3. **Contact Support if Unresolved**:  \n   If the problem persists after 48 hours, our billing team will prioritize your case:  \n   - **Email**: billing@example.com (include order **12345** in the subject)  \n   - **Phone**: 1-800-SUPPORT (mention your order ID for faster handling)  \n\n### Why This Approach?  \nSince you\u2019ve historically encountered similar billing/technical issues, we\u2019ve streamlined the process to avoid repetitive troubleshooting. Most cases resolve after checking payment status, but our team will escalate if needed.\n\n### Next Steps:  \nLet me know if you\u2019d like real-time assistance with checking your payment details, or if you need help drafting your support message. I\u2019m here to ensure this is resolved promptly."
+      ],
+      "frequency": 3,
+      "last_updated": "2025-10-17T01:12:03.726999"
+    }
+  },
+  "stats": {
+    "total_conversations": 3,
+    "resolved_issues": 3
+  }
+}
