@@ -4,13 +4,23 @@ This project implements a cyclical multi-agent customer service workflow using L
 
 ## Project Structure
 
-- `main.py`: Entry point to run the workflow
-- `state.py`: Defines the CustomerServiceState TypedDict
-- `config.py`: LLM configuration and initialization
-- `nodes.py`: All node functions for processing stages
-- `graph.py`: Graph construction and routing logic
-- `requirements.txt`: Python dependencies
-- `.env`: Environment variables (API keys)
+```
+essay-multi-agent/
+├── src/
+│   ├── __init__.py
+│   ├── config.py          # LLM configuration and initialization
+│   ├── graph.py           # Graph construction and routing logic
+│   ├── memory.py          # Agent memory and learning system
+│   ├── nodes.py           # All node functions for processing stages
+│   └── state.py           # CustomerServiceState TypedDict definition
+├── data/
+│   └── agent_memory.json  # Persistent memory storage
+├── main.py                # Entry point to run the workflow
+├── test_memory.py         # Memory system test suite
+├── requirements.txt       # Python dependencies
+├── README.md              # This file
+└── .env                   # Environment variables (API keys)
+```
 
 ## Features
 
@@ -58,6 +68,6 @@ The system includes a persistent memory layer that stores:
 - **Knowledge Base**: Automatically updated FAQ entries from resolved cases
 - **Performance Metrics**: System statistics and agent effectiveness tracking
 
-Memory data is stored in JSON format in the `data/` directory for easy inspection and backup.
+Memory data is stored in JSON format in the `data/` directory for easy inspection and backup. **Note**: The `data/` directory is gitignored to protect user privacy and memory data.
 - **Node Logic**: Separated processing functions
 - **Graph Construction**: Isolated graph building and routing

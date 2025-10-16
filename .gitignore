@@ -82,7 +82,17 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
+# Environment variables
 .env
+
+# Data files (user memory, logs, etc.)
+data/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 .venv
 env/
 venv/
