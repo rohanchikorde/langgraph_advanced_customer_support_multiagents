@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Customer Support - Multi-Agent System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Advanced Customer Support</h1>
+            <p>Powered by Multi-Agent AI with Memory & Learning</p>
+        </header>
+
+        <div class="main-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Support Chat</h2>
+                    <div class="status-indicator">
+                        <span id="connection-status" class="status-offline">● Offline</span>
+                    </div>
+                </div>
+
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="message-text">Hello! I'm your AI customer support assistant. How can I help you today?</div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <input
+                        type="text"
+                        id="user-input"
+                        placeholder="Type your question here..."
+                        maxlength="500"
+                    >
+                    <button id="send-button" class="send-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Conversation History</h3>
+                    <div id="conversation-list" class="conversation-list">
+                        <div class="conversation-item active">
+                            <div class="conversation-title">Current Chat</div>
+                            <div class="conversation-time">Active</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>System Status</h3>
+                    <div class="status-info">
+                        <div class="status-item">
+                            <span class="status-label">Server:</span>
+                            <span id="server-status" class="status-value">Checking...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Total Conversations:</span>
+                            <span id="total-conversations" class="status-value">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Active Users:</span>
+                            <span id="active-users" class="status-value">-</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Resolution Rate:</span>
+                            <span id="resolution-rate" class="status-value">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Quick Actions</h3>
+                    <button id="clear-chat" class="action-button">Clear Chat</button>
+                    <button id="export-chat" class="action-button">Export Chat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

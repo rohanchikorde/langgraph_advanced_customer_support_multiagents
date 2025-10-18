@@ -8,14 +8,23 @@ This project implements a cyclical multi-agent customer service workflow using L
 essay-multi-agent/
 ├── src/
 │   ├── __init__.py
+│   ├── api.py             # FastAPI application and endpoints
 │   ├── config.py          # LLM configuration and initialization
 │   ├── graph.py           # Graph construction and routing logic
 │   ├── memory.py          # Agent memory and learning system
 │   ├── nodes.py           # All node functions for processing stages
 │   └── state.py           # CustomerServiceState TypedDict definition
+├── frontend/
+│   ├── index.html         # Main chat interface
+│   ├── styles.css         # Modern UI styling
+│   └── script.js          # Frontend logic and API calls
 ├── data/
 │   └── agent_memory.json  # Persistent memory storage
-├── main.py                # Entry point to run the workflow
+├── api_server.py         # API server startup script
+├── main.py                # Entry point for CLI usage
+├── frontend_server.py    # Frontend HTTP server
+├── run_servers.py         # Combined server starter
+├── test_integration.py    # End-to-end testing
 ├── test_memory.py         # Memory system test suite
 ├── requirements.txt       # Python dependencies
 ├── README.md              # This file
@@ -46,7 +55,7 @@ essay-multi-agent/
    OPENROUTER_API_KEY=your_openrouter_api_key
    ```
 
-3. Run the workflow:
+3. Run the workflow (CLI):
    ```bash
    python main.py
    ```
@@ -54,7 +63,184 @@ essay-multi-agent/
 4. Run tests:
    ```bash
    python test_memory.py
+   python test_api.py  # Requires API server running
    ```
+
+5. Start the complete system (frontend + backend):
+   ```bash
+   python run_servers.py
+   ```
+   This starts both the backend API and frontend servers.
+   - Frontend: http://localhost:3000
+   - Backend API: http://127.0.0.1:8000
+   - API Docs: http://127.0.0.1:8000/docs
+
+6. Alternative: Run servers separately:
+   ```bash
+   # Terminal 1: Start backend
+   python api_server.py
+
+   # Terminal 2: Start frontend
+   python frontend_server.py
+   ```
+
+7. Run integration tests:
+   ```bash
+   python test_integration.py
+   ```
+
+## API Integration
+
+The system includes a FastAPI-based REST API for seamless frontend integration.
+
+### Endpoints
+
+#### Process Customer Query
+```http
+POST /api/v1/support/query
+```
+
+**Request Body:**
+```json
+{
+  "query": "I have a billing issue with order 12345",
+  "user_id": "optional_user_id",
+  "metadata": {}
+}
+```
+
+**Response:**
+```json
+{
+  "conversation_id": "conv_abc123",
+  "user_id": "user_xyz",
+  "query": "I have a billing issue with order 12345",
+  "response": "I've checked your order...",
+  "categories": ["billing", "technical"],
+  "satisfactory": true,
+  "escalation_needed": false,
+  "processing_time": 2.34,
+  "timestamp": "2025-10-17T12:00:00"
+}
+```
+
+#### Get Conversation History
+```http
+GET /api/v1/support/history/{user_id}?limit=10
+```
+
+#### Get System Statistics
+```http
+GET /api/v1/support/stats
+```
+
+#### Submit Feedback
+```http
+POST /api/v1/support/feedback
+```
+
+**Request Body:**
+```json
+{
+  "conversation_id": "conv_abc123",
+  "user_id": "user_xyz",
+  "rating": 5,
+  "feedback": "Great response!"
+}
+```
+
+#### Health Check
+```http
+GET /health
+```
+
+### Frontend Integration Example
+
+```javascript
+// Submit a customer query
+const response = await fetch('http://localhost:8000/api/v1/support/query', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: "I have a billing issue with order 12345",
+    user_id: "user123"
+  })
+});
+
+const result = await response.json();
+console.log(result.response);
+```
+
+### CORS Configuration
+
+The API includes CORS middleware configured to allow all origins for development. In production, specify your frontend domains:
+
+```python
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://your-frontend-domain.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+## Web Frontend
+
+The project includes a modern, responsive web interface for interacting with the customer support system.
+
+### Frontend Features
+
+- **Real-time Chat**: Send messages and receive responses instantly
+- **Conversation History**: Persistent chat history using local storage
+- **Responsive Design**: Works on desktop and mobile devices
+- **Connection Status**: Visual indicators for backend connectivity
+- **Typing Indicators**: Shows when the AI is processing responses
+- **Error Handling**: Graceful error messages and retry logic
+- **System Statistics**: Live dashboard showing conversation metrics
+- **Export Functionality**: Download chat history as text files
+
+### Usage Instructions
+
+1. **Start the System**:
+   ```bash
+   python run_servers.py
+   ```
+
+2. **Open Browser**:
+   - Navigate to `http://localhost:3000`
+   - Start chatting with the AI support system
+
+3. **API Access**:
+   - Backend API: `http://127.0.0.1:8000`
+   - Interactive docs: `http://127.0.0.1:8000/docs`
+
+### System Architecture
+
+```
+Frontend (localhost:3000)
+    ↓ HTTP Requests
+Backend API (127.0.0.1:8000)
+    ↓ LangGraph Processing
+Multi-Agent System
+    ↓ Persistent Storage
+Memory System (data/agent_memory.json)
+```
+
+### File Structure
+
+```
+├── frontend/
+│   ├── index.html          # Main chat interface
+│   ├── styles.css          # Modern UI styling
+│   └── script.js           # Frontend logic and API calls
+├── frontend_server.py     # Simple HTTP server for frontend
+├── run_servers.py          # Combined server starter
+├── test_integration.py     # End-to-end testing
+└── api_server.py          # FastAPI backend server
+```
 
 ## Architecture
 
