@@ -14,21 +14,22 @@ essay-multi-agent/
 │   ├── memory.py          # Agent memory and learning system
 │   ├── nodes.py           # All node functions for processing stages
 │   └── state.py           # CustomerServiceState TypedDict definition
+├── servers/
+│   ├── api_server.py     # API server startup script
+│   ├── frontend_server.py # Frontend HTTP server
+│   └── run_servers.py    # Combined server starter
+├── tests/
+│   ├── test_api.py        # API endpoint test script
+│   ├── test_greeting.py   # Greeting response test script
+│   ├── test_integration.py # End-to-end testing
+│   └── test_memory.py     # Memory system test suite
 ├── frontend/
 │   ├── index.html         # Main chat interface
 │   ├── styles.css         # Modern UI styling
 │   └── script.js          # Frontend logic and API calls
-├── scripts/
-│   └── test_greeting.py   # Greeting response test script
 ├── data/
 │   └── agent_memory.json  # Persistent memory storage
-├── api_server.py         # API server startup script
 ├── main.py                # Entry point for CLI usage
-├── frontend_server.py    # Frontend HTTP server
-├── run_servers.py         # Combined server starter
-├── test_api.py            # API endpoint test script
-├── test_integration.py    # End-to-end testing
-├── test_memory.py         # Memory system test suite
 ├── requirements.txt       # Python dependencies
 ├── README.md              # This file
 └── .env                   # Environment variables (API keys)
@@ -65,13 +66,14 @@ essay-multi-agent/
 
 4. Run tests:
    ```bash
-   python test_memory.py
-   python test_api.py  # Requires API server running
+   python tests/test_memory.py
+   python tests/test_api.py  # Requires API server running
+   python tests/test_integration.py
    ```
 
 5. Start the complete system (frontend + backend):
    ```bash
-   python run_servers.py
+   python servers/run_servers.py
    ```
    This starts both the backend API and frontend servers.
    - Frontend: http://localhost:3000
@@ -81,15 +83,15 @@ essay-multi-agent/
 6. Alternative: Run servers separately:
    ```bash
    # Terminal 1: Start backend
-   python api_server.py
+   python servers/api_server.py
 
    # Terminal 2: Start frontend
-   python frontend_server.py
+   python servers/frontend_server.py
    ```
 
 7. Run integration tests:
    ```bash
-   python test_integration.py
+   python tests/test_integration.py
    ```
 
 ## API Integration
@@ -239,10 +241,28 @@ Memory System (data/agent_memory.json)
 │   ├── index.html          # Main chat interface
 │   ├── styles.css          # Modern UI styling
 │   └── script.js           # Frontend logic and API calls
-├── frontend_server.py     # Simple HTTP server for frontend
-├── run_servers.py          # Combined server starter
-├── test_integration.py     # End-to-end testing
-└── api_server.py          # FastAPI backend server
+├── servers/
+│   ├── api_server.py      # FastAPI backend server
+│   ├── frontend_server.py # Simple HTTP server for frontend
+│   └── run_servers.py     # Combined server starter
+├── tests/
+│   ├── test_api.py         # API endpoint test script
+│   ├── test_greeting.py    # Greeting response test script
+│   ├── test_integration.py # End-to-end testing
+│   └── test_memory.py      # Memory system test suite
+├── src/
+│   ├── api.py              # FastAPI application and endpoints
+│   ├── config.py           # LLM configuration and initialization
+│   ├── graph.py            # Graph construction and routing logic
+│   ├── memory.py           # Agent memory and learning system
+│   ├── nodes.py            # All node functions for processing stages
+│   └── state.py            # CustomerServiceState TypedDict definition
+├── data/
+│   └── agent_memory.json   # Persistent memory storage
+├── main.py                 # Entry point for CLI usage
+├── requirements.txt        # Python dependencies
+├── README.md               # This file
+└── .env                    # Environment variables (API keys)
 ```
 
 ## Architecture

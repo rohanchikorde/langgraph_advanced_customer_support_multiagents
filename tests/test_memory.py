@@ -5,7 +5,7 @@ Test script for Agent Memory & Learning functionality
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.memory import agent_memory
 
