@@ -1,4 +1,4 @@
-# Customer Service Workflow with LangGraph
+# Advanced Customer Support Multi-Agent System with LangGraph
 
 This project implements a cyclical multi-agent customer service workflow using LangGraph. The system uses a state machine architecture to handle customer queries through various stages including classification, sentiment analysis, specialized handling, dynamic collaboration, and escalation.
 
@@ -18,12 +18,15 @@ essay-multi-agent/
 │   ├── index.html         # Main chat interface
 │   ├── styles.css         # Modern UI styling
 │   └── script.js          # Frontend logic and API calls
+├── scripts/
+│   └── test_greeting.py   # Greeting response test script
 ├── data/
 │   └── agent_memory.json  # Persistent memory storage
 ├── api_server.py         # API server startup script
 ├── main.py                # Entry point for CLI usage
 ├── frontend_server.py    # Frontend HTTP server
 ├── run_servers.py         # Combined server starter
+├── test_api.py            # API endpoint test script
 ├── test_integration.py    # End-to-end testing
 ├── test_memory.py         # Memory system test suite
 ├── requirements.txt       # Python dependencies

@@ -9,6 +9,8 @@ from .nodes import (
 # Router functions
 def route_after_classify(state: CustomerServiceState) -> str:
     categories = state['categories']
+    if not categories:
+        return "general_handler"
     if len(categories) > 1:
         return "collaboration"
     elif categories[0] == "technical":

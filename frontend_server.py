@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 
 PORT = 3000
-DIRECTORY = Path(__file__).parent
+DIRECTORY = Path(__file__).parent / "frontend"
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):

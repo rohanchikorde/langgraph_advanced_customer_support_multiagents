@@ -2,6 +2,7 @@ from typing import Dict, Any
 from .state import CustomerServiceState
 from .config import llm
 from .memory import agent_memory
+import re
 
 # Memory Management Nodes
 def load_memory(state: CustomerServiceState) -> Dict[str, Any]:
@@ -91,10 +92,24 @@ def classify_query(state: CustomerServiceState) -> Dict[str, Any]:
     else:
         inferred_categories = ["billing", "technical"]  # fallback for testing
 
-    return {
-        "categories": inferred_categories,
-        "entities": {"order_id": "12345"}  # Keep for testing
-    }
+        # Basic, safe entity extraction: only include order_id if it's explicitly present in the query
+        entities = {}
+        query_text = state.get('query', '') or ''
+        # simple detection for order patterns like 'order 12345' or 'order id 12345'
+        import re
+        match = re.search(r'order\s*(?:id)?\s*(\d{3,12})', query_text, re.IGNORECASE)
+        if match:
+            entities['order_id'] = match.group(1)
+
+        # If the user only said a greeting, treat as a general inquiry (no entities)
+        if re.match(r'^(hi|hello|hey|good\s+morning|good\s+afternoon|good\s+evening)[\W]*$', query_text.strip(), re.IGNORECASE):
+            inferred_categories = ['general']
+            entities = {}
+
+        return {
+            "categories": inferred_categories,
+            "entities": entities
+        }
 
 def analyze_sentiment(state: CustomerServiceState) -> Dict[str, Any]:
     # Hardcoded for testing
@@ -215,7 +230,7 @@ Provide a personalized response considering the user's past interactions."""
     except Exception as e:
         print(f"LLM call failed: {e}")
         # Fallback response
-        response_content = f"Thank you for your inquiry about '{state['query']}'. I'm here to help. Based on similar cases, this appears to be a general question that I can assist with. Could you provide more details about what you're looking for?"
+        response_content = f"Thank you for your inquiry about '{state['query']}'. I'm here to help. Could you provide more details about what you're looking for?"
 
     state['conversation_history'].append({"role": "assistant", "content": response_content})
     return {"response": response_content}
@@ -248,12 +263,30 @@ def escalate(state: CustomerServiceState) -> Dict[str, Any]:
 def generate_response(state: CustomerServiceState) -> Dict[str, Any]:
     # If not handled by specialized, generate general response
     if not state.get('response'):
-        # Hardcoded for testing
-        response_content = "Thank you for your query. We're here to help."
+        # Use LLM to generate a response
+        prompt = f"Generate a helpful response for the customer query: {state['query']}"
+        try:
+            response = llm.invoke(prompt)
+            response_content = response.content
+        except Exception as e:
+            print(f"LLM call failed in generate_response: {e}")
+            response_content = "I'm sorry, I couldn't process your request at this time. Please try again."
         state['conversation_history'].append({"role": "assistant", "content": response_content})
         return {"response": response_content}
     return {}
 
 def validate_response(state: CustomerServiceState) -> Dict[str, Any]:
-    # Hardcoded for testing - assume satisfactory
-    return {"satisfactory": True}
+    # Use LLM to validate if the response is satisfactory
+    prompt = f"""Evaluate if the following response adequately addresses the customer's query.
+
+Query: {state['query']}
+Response: {state.get('response', '')}
+
+Is this response satisfactory? Answer with only 'yes' or 'no'."""
+    try:
+        validation = llm.invoke(prompt)
+        is_satisfactory = 'yes' in validation.content.lower()
+    except Exception as e:
+        print(f"LLM call failed in validate_response: {e}")
+        is_satisfactory = True  # Default to satisfactory if LLM fails
+    return {"satisfactory": is_satisfactory}
